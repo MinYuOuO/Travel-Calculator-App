@@ -3,76 +3,25 @@
 
 using namespace std;
 
-class Trip; // Class declaration, find in functions.h
+/**
+ * @brief Calculates the reimbursement for miles driven based on the allowance per mile.
+ * @return allowance: double
+ */
+double transportationExpenses::calculateMilesReimbursement() const {
+    // Calculate the reimbursement for miles driven
+    return milesDriven * allowancePerMile;
+}
 
-class transportationExpenses
-{
-public:
-    double totalRoundTrip; // Total round trip miles
-    double totalCarRental; // Total cost of car rental
-    double milesDriven; // Total miles driven
-    double totalTaxiFee;
 
-    const double allowancePerMile = 0.58; // Allowance per mile for reimbursement
-    const double taxiFeePerDay = 40;
-
-    // Function to calculate the total charge based on miles and rate
-    double calculateMileageReimbursement() const
-    {
-        return milesDriven * allowancePerMile;
+/**
+ * @brief Calculates the taxi fee for the day, ensuring it does not exceed the maximum allowed fee.
+ * @return taxiFee: double
+ */
+double transportationExpenses::calculateTaxiFee() const {
+    // excess of maximum taxi fee paid by employee
+    if (totalTaxiFee <= maxTaxiFeePerDay) {
+        return totalTaxiFee;
+    } else {
+        return maxTaxiFeePerDay;
     }
-
-    // Function to calculate the total taxi fee based on days
-    double calculateTaxiAllowance() const
-    {
-        return totalTaxiFee * taxiFeePerDay;
-    }
-};
-
-
-class parkingExpenses
-{
-public:
-    double parkingFeePerDay; // Parking fee per day
-    double totalParkingFee;
-
-    const double highestParkingFee = 12; // Highest parking fee allowed per day
-    const double taxiFeePerDay = 40;
-
-    void calculateParkingCost()
-    {
-
-    }
-};
-
-class hotelExpenses
-{
-public:
-    double hotelFeePerNight;
-
-    const double highestHotelFeePerNight = 90; // Hotel fee per night
-
-    void calculateHotelCost()
-    {
-
-    }
-};
-
-class mealExpenses
-{
-public:
-    double breakfastCost;
-    double lunchCost;
-    double dinnerCost;
-    double totalMealCost;
-
-    const double breakfastAllowance = 18;
-    const double lunchAllowance = 12;
-    const double dinnerAllowance = 20;
-
-    void calculateMealCost()
-    {
-
-    }
-};
-
+}
