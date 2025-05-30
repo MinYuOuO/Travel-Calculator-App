@@ -58,6 +58,7 @@ public:
  * @brief 
  * 
  * @param parkingExpenses Total parking expenses
+ * @param hotelExpenses Total hotel expenses
  */
 class parkingExpenses {};
 class hotelExpenses {};
