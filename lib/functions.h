@@ -37,6 +37,10 @@ public:
  * @param totalRoundTrip Total round trip miles
  * @param totalCarRental Total cost of car rental
  * @param milesDriven Total miles driven
+ * @param totalTaxiFee Total taxi fee
+ * 
+ * @param allowancePerMile = 0.58 Allowance per mile for reimbursement
+ * @param taxiFeePerDay = 40 Taxi fee per day
  */
 class transportationExpenses {
 public:
