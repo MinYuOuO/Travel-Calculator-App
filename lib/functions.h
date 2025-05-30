@@ -52,6 +52,13 @@ public:
     const double allowancePerMile = 0.58; // Allowance per mile for reimbursement
     const double taxiFeePerDay = 40;
 };
+
+/** 
+ * @file functions.h
+ * @brief 
+ * 
+ * @param parkingExpenses Total parking expenses
+ */
 class parkingExpenses {};
 class hotelExpenses {};
 class mealExpenses {};
