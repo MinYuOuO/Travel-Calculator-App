@@ -5,11 +5,8 @@ void displayMenu();
 
 // refer to ./calculations.cpp
 // The default values for the parameters in the classes are setted to ensure that the classes can be instantiated without requiring any arguments.
-// The default values for the parameters in the classes are setted to ensure that the classes can be instantiated without requiring any arguments.
 
 /** 
- * @class trip
- * @brief Represents parking expenses information for travel expenses.
  * @class trip
  * @brief Represents parking expenses information for travel expenses.
  * 
@@ -21,7 +18,6 @@ void displayMenu();
  * @param totalTripCost Total cost of the trip
  * @param totalTripCost Total cost of the trip
  */
-class trip {
 class trip {
 public:
     int startingDay = 1; // Starting day of the trip
@@ -37,7 +33,6 @@ public:
 };
 
 /** 
- * @class transportationExpenses
  * @class transportationExpenses
  * @brief transportation expenses information for travel expenses.
  * 

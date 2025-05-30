@@ -15,9 +15,6 @@ double transportationExpenses::calculateMilesReimbursement() {
     } else {
         return 0.00; // No miles driven
     }
-double transportationExpenses::calculateMilesReimbursement() const {
-    // Calculate the reimbursement for miles driven
-    return milesDriven * allowancePerMile;
 }
 
 
