@@ -35,6 +35,7 @@ public:
  * @brief transportation expenses information for travel expenses.
  * 
  * @param totalRoundTrip Total round trip miles
+ * @param totalCarRental Total cost of car rental
  * 
  */
 class transportationExpenses {
