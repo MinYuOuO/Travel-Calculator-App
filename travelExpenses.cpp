@@ -1,7 +1,0 @@
-class TravelExpenses
-{
-public:
-
-private:
-
-};
