@@ -12,6 +12,7 @@ void displayMenu()
     cout << "1. Calculate Trip Cost" << endl;
     cout << "2. Exit" << endl;
     cout << "Please select an option: ";
+    cout << "...";
 }
 
 
