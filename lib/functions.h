@@ -36,7 +36,7 @@ public:
  * 
  * @param totalRoundTrip Total round trip miles
  * @param totalCarRental Total cost of car rental
- * 
+ * @param milesDriven Total miles driven
  */
 class transportationExpenses {
 public:
