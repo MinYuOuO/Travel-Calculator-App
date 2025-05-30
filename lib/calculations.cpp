@@ -15,6 +15,9 @@ double transportationExpenses::calculateMilesReimbursement() {
     } else {
         return 0.00; // No miles driven
     }
+double transportationExpenses::calculateMilesReimbursement() const {
+    // Calculate the reimbursement for miles driven
+    return milesDriven * allowancePerMile;
 }
 
 
@@ -61,5 +64,14 @@ double transportationExpenses::calculationVehicleAllowance() {
         return milesDriven * maxAllowancePerMile;
     } else {
         return 0.00; // No miles driven
+    }
+}
+
+double transportationExpenses::calculateTaxiFee() const {
+    // excess of maximum taxi fee paid by employee
+    if (totalTaxiFee <= maxTaxiFeePerDay) {
+        return totalTaxiFee;
+    } else {
+        return maxTaxiFeePerDay;
     }
 }

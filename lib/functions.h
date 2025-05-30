@@ -29,6 +29,9 @@ public:
     double totalTripCost = 0.00; // Total cost of the trip
 
     double calculateTotalDays();
+
+    int totalNumberOfDays = 1; // Total number of days for the trip
+    double totalTripCost = 0.00; // Total cost of the trip
 };
 
 /** 
@@ -37,16 +40,20 @@ public:
  * 
  * @param totalTransportationCost Total transportation cost
  * @param totalRoundTrip Total round trip airfare
+ * @param transportationCost Total transportation cost
+ * @param totalRoundTrip Total round trip miles
  * @param totalCarRental Total cost of car rental
  * @param milesDriven Total miles driven
  * @param totalTaxiFee Total taxi fee
  * 
  * @param maxAllowancePerMile Allowance per mile for reimbursement
+ * @param allowancePerMile Allowance per mile for reimbursement
  * @param maxTaxiFeePerDay Taxi fee per day
  */
 class transportationExpenses {
 public:
     double totalTransportationCost = 0.00;
+    double transportationCost = 0.00;
     double totalRoundTrip = 0.00; // Total round trip miles
     double totalCarRental = 0.00; // Total cost of car rental
     double milesDriven = 0.00; // Total miles driven
@@ -60,6 +67,63 @@ public:
     double calculateAirfare();
     double calculateCarRental();
     double calculationVehicleAllowance();
+};
+
+/** 
+ * @class parkingExpenses
+ * @brief 
+ * @param totalParkingFee Total parking fees
+ * @param parkingExpenses Total parking expenses
+ * @param highestParkingFee Highest parking fee allowed per day
+ */
+class parkingExpenses {
+public:
+    double totalParkingFee = 0.00;
+    double parkingFeePerDay = 0.00; // Parking fee per day
+
+    const double highestParkingFee = 12; // Highest parking fee allowed per day
+};
+
+/** 
+ * @class hotelExpenses
+ * @brief hotel expenses information for expenses calculation.
+ * 
+ * @param TotalHotelExpenses Total hotel expenses
+ * @param hotelFeePerNight Hotel fee per night
+ * @param highestHotelFeePerNight Highest hotel fee allowed per night
+ */
+class hotelExpenses {
+public:
+    double TotalHotelExpenses = 0.00;
+    double hotelFeePerNight = 0.00; // Hotel fee per night
+
+    const double highestHotelFeePerNight = 90; // Hotel fee per night
+};
+
+/** 
+ * @class mealExpenses
+ * @brief 
+ * 
+ * @param breakfastCost Total breakfast const
+ * @param lunchCost Total lunch cost
+ * @param dinnerCost Total dinner cost
+ * @param totalMealCost Total meal cost
+ * 
+ * @param breakfastAllowance 18 Breakfast allowance per day
+ * @param lunchAllowance Lunch allowance per day
+ * @param dinnerAllowance Dinner allowance per day
+ */
+class mealExpenses
+{
+public:
+    double breakfastCost = 0.00;
+    double lunchCost = 0.00;
+    double dinnerCost = 0.00;
+    double totalMealCost = 0.00;
+
+    const double breakfastAllowance = 18;
+    const double lunchAllowance = 12;
+    const double dinnerAllowance = 20;
 };
 
 /** 
