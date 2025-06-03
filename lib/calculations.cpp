@@ -63,3 +63,16 @@ double transportationExpenses::calculationVehicleAllowance() {
         return 0.00; // No miles driven
     }
 }
+
+double parkingExpenses::calculationParkingFee(){
+    // Calculate the total parking fee, ensuring it does not exceed the maximum allowed fee
+    if (parkingFeePerDay >0){
+        if (parkingFeePerDay <= highestParkingFee){
+            totalParkingFee += parkingFeePerDay;
+            return parkingFeePerDay;
+        } else {
+            totalParkingFee += highestParkingFee;
+            return highestParkingFee;
+        }
+    }
+}

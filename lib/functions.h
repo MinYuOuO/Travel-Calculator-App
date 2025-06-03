@@ -77,7 +77,7 @@ public:
 
     const double highestParkingFee = 12; // Highest parking fee allowed per day
 
-    double calculateReimbursedParkingFee();
+    double calculationParkingFee();
 };
 
 /** 
