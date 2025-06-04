@@ -1,6 +1,7 @@
-# Ignore in main/
-/.vscode
 
-# Ignore in lib/
-/lib/Travel-Calculator-App.exe
+/.vscode
 /.vs
+/lib/.vscode
+/lib/.vs
+/lib/Travel-C.2382c436
+/lib/x64

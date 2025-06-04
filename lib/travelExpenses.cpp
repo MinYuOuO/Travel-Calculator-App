@@ -9,14 +9,14 @@ private:
     trip travel;
 
 public:
-    
+
     double conferenceFees = 0.00; // this should be in functions.h and used in calculations.cpp
 
     double calculateTotalReimbursed() {
-        return transport.totalTransportationCost + 
-               parking.totalParkingFee + 
-               hotel.totalHotelExpenses * travel.totalNumberOfDays + 
-               meals.totalMealCost + 
-               conferenceFees;
+        return transport.totalTransportationCost +
+            parking.totalParkingFee +
+            hotel.totalHotelExpenses * travel.totalNumberOfDays +
+            meals.totalMealCost +
+            conferenceFees;
     }
 };
