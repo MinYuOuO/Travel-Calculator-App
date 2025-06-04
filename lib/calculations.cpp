@@ -1,6 +1,6 @@
 // calculations.cpp : This file contains calculations for travel expenses.
 #include "functions.h"
-
+#include <iostream>
 using namespace std;
 
 int trip::calculateTotalDays() {
@@ -102,6 +102,26 @@ double parkingExpenses::calculationParkingFee() {
         return 0.00; // No parking fee
     }
 }
+
+double ConferenceOrRegistrationExpenses::inputConferenceFee(){
+    do{
+        std::cout<< "Enter the amount of any conference or registration fees: ";
+        std::cin>> conferenceFee;
+        if (conferenceFee <0){
+            std::cout << "Conference or registration fees cannot be negative.";
+        }
+    }while (conferenceFee <0);
+}
+double ConferenceOrRegistrationExpenses::calculateConferenceFee(){
+    if (conferenceFee >0){
+        totalConferenceFee += conferenceFee;
+        return conferenceFee;
+    }
+    else{
+        return 0.00; // No conference fee
+    }
+}
+
 
 double hotelExpenses::calculateReimbursedHotelFee() {
     return 1;

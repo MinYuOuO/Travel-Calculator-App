@@ -126,3 +126,12 @@ public:
 
     double calculateReimbursedMeals();
 };
+
+
+class ConferenceOrRegistrationExpenses {
+    public:
+    double totalConferenceFee;
+    double conferenceFee;
+    double calculateConferenceFee();
+    double inputConferenceFee();
+};
