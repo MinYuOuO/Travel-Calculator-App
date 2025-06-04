@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d3651721-627a-4c08-9c31-247e9ec9227e}</ProjectGuid>
+    <ProjectGuid>{2382c436-d06c-402f-8a7c-659803c363c2}</ProjectGuid>
     <RootNamespace>TravelCalculatorApp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -127,8 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="calculations.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Travel-Calculator-App.cpp" />
+    <ClCompile Include="terminal.cpp" />
+    <ClCompile Include="travelExpenses.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="functions.h" />
