@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-double inputValue(const string& subject) {
+double inputValue(const string subject) {
     double value;
     value = -1; // 以防在进行判断前value已经有数值
 
@@ -19,10 +19,10 @@ double inputValue(const string& subject) {
     
 }
 
-int inputValue(const string& subject, int) {
+int inputValue(const string subject, int dummy) {
     int value;
     value = -1; // 以防在进行判断前value已经有数值
-
+    
     do {
         cout << "Enter " << subject << " Amount: ";
         cin >> value;
@@ -36,14 +36,6 @@ int inputValue(const string& subject, int) {
 }
 
 int trip::calculateTotalDays() {
-    do{
-        std::cout << "Enter the number of days for the trip: ";
-        std::cin >> totalTripDays;
-
-        if (totalTripDays <=0){
-            std::cout << "Number of days must be greater than 0. Please try again." << std::endl;
-        }
-    }while (totalTripDays <=0);
     
     return totalTripDays;
 }
@@ -164,9 +156,6 @@ double hotelExpenses::calculateReimbursedHotelFee(int days) {
     totalHotelExpenses = hotelFeePerNight * days;
 
     double allowedAmount = highestHotelFeePerNight * days;
-
-    cout << "Total Hotel Cost: $" << totalHotelExpenses << endl;
-    cout << "Maximum Allowable Reimbursement: $" << allowedAmount << endl;
 
     if (totalHotelExpenses > allowedAmount) {
         cout << "Excess (to be paid by employee): $"
