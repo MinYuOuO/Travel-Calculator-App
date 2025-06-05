@@ -1,4 +1,8 @@
 #pragma once
+# include <iostream>
+# include <string>
+
+using namespace std;
 
 // from ./terminal.cpp
 void displayMenu();
@@ -13,15 +17,15 @@ void calculatorMenu();
  * @param subject string subject title for the value
  * @return Validated double input value.
  */
-double inputValue(const string& subject);
+double inputValue(const string subject);
 
 /**
- * @brief 
+ * @brief Prompts the user to input a value.
  * 
  * @param subject string subject title for the value
  * @return Validated integer input value.
  */
-int inputValue(const string& subject, int);
+int inputValue(const string subject, int dummy);
 
 /**
  * @class trip
@@ -47,7 +51,7 @@ public:
     double totalTripCost = 0.00; // Total cost of the trip
 
     int totalTripDays; // Total number of days for the trip
-    int getTripDays();
+
     int calculateTotalDays();
 };
 
