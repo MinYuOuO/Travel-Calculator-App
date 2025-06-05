@@ -3,6 +3,34 @@
 #include <iostream>
 using namespace std;
 
+double inputHandler::inputValue(const string& subject) {
+    double value;
+    do {
+        cout << "Enter " << subject << " Amount: ";
+        cin >> value;
+        if (value < 0) {
+            cout << "Value cannot be negative. Please try again." << endl;
+            value = -1;
+        }
+    } while (value < 0); // Ensure the value is non-negative
+    return value;
+    
+}
+
+int inputValue(const string& subject, int) {
+    int value;
+    do {
+        cout << "Enter " << subject << " Amount: ";
+        cin >> value;
+        if (value < 0) {
+            cout << "Value cannot be negative. Please try again." << endl;
+            value = -1;
+        }
+    } while (value < 0); // Ensure the value is non-negative
+    return value;
+    
+}
+
 int trip::calculateTotalDays() {
     return 1;
 }
@@ -103,15 +131,6 @@ double parkingExpenses::calculationParkingFee() {
     }
 }
 
-double ConferenceOrRegistrationExpenses::inputConferenceFee(){
-    do{
-        std::cout<< "Enter the amount of any conference or registration fees: ";
-        std::cin>> conferenceFee;
-        if (conferenceFee <0){
-            std::cout << "Conference or registration fees cannot be negative.";
-        }
-    }while (conferenceFee <0);
-}
 double ConferenceOrRegistrationExpenses::calculateConferenceFee(){
     if (conferenceFee >0){
         totalConferenceFee += conferenceFee;
