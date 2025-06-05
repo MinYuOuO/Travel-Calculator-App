@@ -5,17 +5,19 @@
 
 using namespace std;
 
+trip tripUser; // Object for trip-related data
+transportationExpenses transportUser; // Object for transportation-related data
+parkingExpenses parkingUser; // Object for parking-related data
+hotelExpenses hotelUser; // Object for hotel-related data
+mealExpenses mealUser; // Object for meal-related data
+ConferenceOrRegistrationExpenses ConferenceUser;
+
 void calculatorMenu() {
     /**
      * @brief Section of the code that handles user input
      *
      */
     int choose;
-
-    transportationExpenses transportUser; // Object for transportation-related data
-    parkingExpenses parkingUser; // Object for parking-related data
-    hotelExpenses hotelUser; // Object for hotel-related data
-    mealExpenses mealUser; // Object for meal-related data
 
     cout << "--------------------------------" << endl;
     cout << "Travel Calculator Menu:" << endl;
@@ -34,50 +36,41 @@ void calculatorMenu() {
 
     switch (choose) {
     case 1:
-        cout << "Enter round-trip airfare amount: ";
-        cin >> transportUser.totalRoundTrip;
+        transportUser.totalRoundTrip = inputValue("Round-trip Airfare");
         transportUser.calculateAirfare();
-        return calculatorMenu();
+        return calculatorMenu(); // go back
     case 2:
-        cout << "Enter car rental amount: ";
-        cin >> transportUser.totalCarRental;
+        transportUser.totalCarRental = inputValue("Car Rental");
         transportUser.calculateCarRental();
-        return calculatorMenu();
+        return calculatorMenu(); // go back
     case 3:
-        cout << "Enter miles driven: ";
-        cin >> transportUser.milesDriven;
+        transportUser.milesDriven = inputValue("Miles Driven");
         transportUser.calculateMilesReimbursement();
-        return calculatorMenu();
+        return calculatorMenu(); // go back
     case 4:
-        cout << "Enter parking fee: ";
-        cin >> parkingUser.parkingFeePerDay;
+        parkingUser.parkingFeePerDay = inputValue("Parking Fee");
         parkingUser.calculationParkingFee();
         cout << "Total parking fee: " << parkingUser.totalParkingFee << endl;
-        return calculatorMenu();
+        return calculatorMenu(); // go back
     case 5:
-        cout << "Enter taxi fee: ";
-        cin >> transportUser.totalTaxiFee;
+        transportUser.totalTaxiFee = inputValue("Taxi Fee");
         transportUser.calculateTaxiFee();
         cout << "Total transportation cost: " << transportUser.totalTransportationCost << endl;
         return calculatorMenu();
     case 6:
-        double registrationFee;
-        cout << "Enter conference or seminar registration fee: ";
-        cin >> registrationFee;
+        double registrationFee; 
+        ConferenceUser.conferenceFee = inputValue("Conference or Seminar Registration Fee");
+        ConferenceUser.calculateConferenceFee();
         return calculatorMenu();
     case 7:
-        cout << "Enter hotel expenses: ";
-        cin >> hotelUser.hotelFeePerNight;
-        hotelUser.calculateReimbursedHotelFee();
+        hotelUser.hotelFeePerNight = inputValue("Hotel Expenses");
+        hotelUser.calculateReimbursedHotelFee(tripUser.totalNumberOfDays);
         cout << "Total hotel expenses: " << hotelUser.totalHotelExpenses << endl;
         return calculatorMenu();
     case 8:
-        cout << "Enter breakfast cost: ";
-        cin >> mealUser.breakfastCost;
-        cout << "Enter lunch cost: ";
-        cin >> mealUser.lunchCost;
-        cout << "Enter dinner cost: ";
-        cin >> mealUser.dinnerCost;
+        mealUser.breakfastCost = inputValue("Breakfast Cost");
+        mealUser.lunchCost = inputValue("Lunch Cost");
+        mealUser.dinnerCost = inputValue("Dinner Cost");
         mealUser.calculateReimbursedMeals();
         cout << "Total meal cost: " << mealUser.totalMealCost << endl;
         return calculatorMenu();
@@ -92,8 +85,6 @@ void calculatorMenu() {
 // Main menu function to display options to the user
 void displayMenu()
 {
-    trip tripUser; // Object for trip-related data
-
     while (true) {
         cout << "Travel Calculator Menu:" << endl;
         cout << "1. Calculate Trip Cost" << endl;

@@ -3,8 +3,10 @@
 #include <iostream>
 using namespace std;
 
-double inputHandler::inputValue(const string& subject) {
+double inputValue(const string& subject) {
     double value;
+    value = -1; // 以防在进行判断前value已经有数值
+
     do {
         cout << "Enter " << subject << " Amount: ";
         cin >> value;
@@ -19,6 +21,8 @@ double inputHandler::inputValue(const string& subject) {
 
 int inputValue(const string& subject, int) {
     int value;
+    value = -1; // 以防在进行判断前value已经有数值
+
     do {
         cout << "Enter " << subject << " Amount: ";
         cin >> value;
@@ -114,6 +118,10 @@ double transportationExpenses::calculationVehicleAllowance() {
     }
 }
 
+/**
+ * @brief 
+ * @return ParkingFee: double
+ */
 double parkingExpenses::calculationParkingFee() {
     // Calculate the total parking fee, ensuring it does not exceed the maximum allowed fee
     if (parkingFeePerDay > 0) {
