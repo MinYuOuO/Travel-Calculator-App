@@ -123,8 +123,22 @@ double ConferenceOrRegistrationExpenses::calculateConferenceFee(){
 }
 
 
-double hotelExpenses::calculateReimbursedHotelFee() {
-    return 1;
+double hotelExpenses::calculateReimbursedHotelFee(int days) {
+    totalHotelExpenses = hotelFeePerNight * days;
+
+    double allowedAmount = highestHotelFeePerNight * days;
+
+    cout << "Total Hotel Cost: $" << totalHotelExpenses << endl;
+    cout << "Maximum Allowable Reimbursement: $" << allowedAmount << endl;
+
+    if (totalHotelExpenses > allowedAmount) {
+        cout << "Excess (to be paid by employee): $"
+             << totalHotelExpenses - allowedAmount << endl;
+    } else {
+        cout << "No excess payment required by employee." << endl;
+    }
+
+    return allowedAmount;
 }
 
 double mealExpenses::calculateReimbursedMeals() {
