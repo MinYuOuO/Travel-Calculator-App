@@ -8,6 +8,20 @@ void calculatorMenu();
 // The default values for the parameters in the classes are setted to ensure that the classes can be instantiated without requiring any arguments.
 
 /**
+ * @class InputHandler
+ * @brief Handles user input for different data types using polymorphism.
+ */
+class inputHandler {
+public:
+    /**
+     * @brief Prompts the user to input a value.
+     * @return Validated input value.
+     */
+    double inputValue(const string& subject);
+    int inputValue(const string& subject, int);
+};
+
+/**
  * @class trip
  * @brief Represents parking expenses information for travel expenses.
  *
