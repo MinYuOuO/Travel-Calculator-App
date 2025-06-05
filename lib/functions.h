@@ -96,7 +96,7 @@ public:
 
     const double highestHotelFeePerNight = 90; // Hotel fee per night
 
-    double calculateReimbursedHotelFee();
+    double calculateReimbursedHotelFee(int days);
 };
 
 /**
