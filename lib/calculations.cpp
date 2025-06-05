@@ -36,8 +36,18 @@ int inputValue(const string& subject, int) {
 }
 
 int trip::calculateTotalDays() {
-    return 1;
+    do{
+        std::cout << "Enter the number of days for the trip: ";
+        std::cin >> totalTripDays;
+
+        if (totalTripDays <=0){
+            std::cout << "Number of days must be greater than 0. Please try again." << std::endl;
+        }
+    }while (totalTripDays <=0);
+    
+    return totalTripDays;
 }
+
 
 /**
  * @brief Calculates the reimbursement for miles driven based on the allowance per mile.

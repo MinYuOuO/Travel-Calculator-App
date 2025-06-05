@@ -46,6 +46,8 @@ public:
     int totalNumberOfDays = 1; // Total number of days for the trip
     double totalTripCost = 0.00; // Total cost of the trip
 
+    int totalTripDays; // Total number of days for the trip
+    int getTripDays();
     int calculateTotalDays();
 };
 
