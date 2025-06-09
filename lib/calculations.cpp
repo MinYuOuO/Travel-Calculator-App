@@ -36,9 +36,11 @@ int inputValue(const string subject, int dummy) {
         } else
             if (value >= 1)
                 return value;
+        
+        cout << "Value cannot be negative. Please try again." << endl;
     } while (value < 0); // Ensure the value is non-negative
 
-    cout << "Value cannot be negative. Please try again." << endl;
+    return -1; // debug non-void function warning
 }
 
 int trip::calculateTotalDays() {

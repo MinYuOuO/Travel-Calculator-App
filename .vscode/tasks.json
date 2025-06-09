@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0", // this is for window 11 visua studio code tasks.json
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe", // g++.exe folder
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}\\lib\\main.cpp",
+                "${workspaceFolder}\\lib\\terminal.cpp",
+                "${workspaceFolder}\\lib\\calculations.cpp",
+                "-o",
+                "${workspaceFolder}\\build\\main.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "edited by Min Yu"
+        }
+    ]
+}

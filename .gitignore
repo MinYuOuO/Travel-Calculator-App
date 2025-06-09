@@ -1,8 +1,9 @@
 
-/.vscode
 /.vs
-/lib/.vscode
+/.vscode/launch.json
+/.vscode/settings.json
 /lib/.vs
 /lib/Travel-C.2382c436
 /lib/x64
 /lib/main.exe
+/build
