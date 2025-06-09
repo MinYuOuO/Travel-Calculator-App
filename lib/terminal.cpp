@@ -96,8 +96,7 @@ void travelExpenses() {
     cout << "------------------------------------";
     cout << '\n' << "Press a key to continue...";
     cin.get();
-    return calculatorMenu();
-
+    return travelExpenses();
 }
 
 /**
@@ -120,8 +119,7 @@ void expensesReport() {
     cout << "Transportation Expenses" << endl;
     cout << "Airfare:                       $" << newUser.totalRoundTrip << endl;
     cout << "Car Rental:                    $" << newUser.totalCarRental << endl;
-    cout << "Miles Driven: " << newUser.milesDriven << " miles" << endl;
-    cout << "Mileage Reimbursement:         $" << newUser.milesDriven * newUser.maxAllowancePerMile << endl;
+    cout << "Mileage Reimbursement:         $" << newUser.milesDriven << endl;
     cout << "Taxi Fees:                     $" << newUser.totalTaxiFee << endl;
     cout << "Total Transportation Expenses: $" << newUser.totalTransportationCost << endl;
     cout << "------------------------------------" << endl;

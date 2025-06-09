@@ -6,7 +6,7 @@ using namespace std;
 
 // from ./terminal.cpp
 void displayMenu();
-void calculatorMenu();
+void travelExpenses();
 
 // refer to ./calculations.cpp
 // The default values for the parameters in the classes are setted to ensure that the classes can be instantiated without requiring any arguments.
@@ -76,14 +76,15 @@ public:
     double milesDriven = 0.00; // Total miles driven
     double totalTaxiFee = 0.00;
 
-    const double maxAllowancePerMile = 0.58; // Allowance per mile for reimbursement
-    const double maxTaxiFeePerDay = 40;
-
     double calculateMilesReimbursement();
     double calculateTaxiFee();
     double calculateAirfare();
     double calculateCarRental();
     double calculationVehicleAllowance();
+
+protected:
+    const double maxAllowancePerMile = 0.58; // Allowance per mile for reimbursement
+    const double maxTaxiFeePerDay = 40;
 };
 
 /**
@@ -97,10 +98,11 @@ class parkingExpenses {
 public:
     double totalParkingFee = 0.00;
     double parkingFeePerDay = 0.00; // Parking fee per day
-
-    const double highestParkingFee = 12; // Highest parking fee allowed per day
-
+    
     double calculationParkingFee();
+    
+protected:
+    const double highestParkingFee = 12; // Highest parking fee allowed per day
 };
 
 /**
@@ -116,9 +118,10 @@ public:
     double totalHotelExpenses = 0.00;
     double hotelFeePerNight = 0.00; // Hotel fee per night
 
-    const double highestHotelFeePerNight = 90; // Hotel fee per night
-
     double calculateReimbursedHotelFee(int days);
+
+protected:
+    const double highestHotelFeePerNight = 90; // Hotel fee per night
 };
 
 /**
@@ -142,11 +145,13 @@ public:
     double dinnerCost = 0.00;
     double totalMealCost = 0.00;
 
+    
+    double calculateReimbursedMeals();
+    
+protected:
     const double breakfastAllowance = 18;
     const double lunchAllowance = 12;
     const double dinnerAllowance = 20;
-
-    double calculateReimbursedMeals();
 };
 
 
@@ -158,7 +163,11 @@ public:
     double calculateConferenceFee();
 };
 
-// inheritance class
+
+/**
+ * @brief Child Class inheritance from transportationExpenses, parking Expenses, hotelExpenses, mealExpenses, ConferenceOrRegistrationExpenses
+ * 
+ */
 class user : public trip, public transportationExpenses, public parkingExpenses, public hotelExpenses, public mealExpenses, public ConferenceOrRegistrationExpenses {
 public:
     string userID;

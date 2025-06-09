@@ -1,6 +1,6 @@
-// calculations.cpp : This file contains calculations for travel expenses.
 #include "functions.h"
 #include <iostream>
+
 using namespace std;
 
 double inputValue(const string subject) {
@@ -12,41 +12,33 @@ double inputValue(const string subject) {
         cin >> value;
         if (value < 0) {
             cout << "Value cannot be negative. Please try again." << endl;
-            value = -1;
         }
     } while (value < 0); // Ensure the value is non-negative
+
     return value;
-    
 }
 
 int inputValue(const string subject, int dummy) {
     int value;
-    value = -1; // 以防在进行判断前value已经有数值
-    
+
     do {
-        if (subject == "day") {
-            cout << "Enter " << subject << ": ";
-            cin >> value;
-            if (value < 0 and value <= 32) {
-            cout << "Value cannot be negative. Please try again." << endl;
-            value = -1;
-            }
-        } else if (subject == "month") {
-            cout << "Enter " << subject << ": ";
-            cin >> value;
-            if (value < 0 and value <= 12) {
-            cout << "Value cannot be negative. Please try again." << endl;
-            value = -1;
-            }
-        } else
+        value = 0; // 以防在进行判断前value已经有数值
+
         cout << "Enter " << subject << ": ";
         cin >> value;
-        if (value < 0) {
-            cout << "Value cannot be negative. Please try again." << endl;
-            value = -1;
-        }
+
+        if (subject == "day") {
+            if (value >= 1 and value <= 32)
+                return value;
+        } else if (subject == "month") {
+            if (value >= 1 and value <= 12)
+                return value;
+        } else
+            if (value >= 1)
+                return value;
     } while (value < 0); // Ensure the value is non-negative
-    return value;
+
+    cout << "Value cannot be negative. Please try again." << endl;
 }
 
 int trip::calculateTotalDays() {
@@ -201,7 +193,3 @@ double mealExpenses::calculateReimbursedMeals() {
 
     return reimbursed;
 }
-
-class user : public trip, transportationExpenses, parkingExpenses, hotelExpenses, mealExpenses, ConferenceOrRegistrationExpenses {
-
-};

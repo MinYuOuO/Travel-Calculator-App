@@ -130,7 +130,6 @@
     <ClCompile Include="calculations.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="terminal.cpp" />
-    <ClCompile Include="travelExpenses.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="functions.h" />
