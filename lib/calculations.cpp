@@ -28,10 +28,10 @@ int inputValue(const string subject, int dummy) {
         cin >> value;
 
         if (subject == "day") {
-            if (value >= 1 and value <= 32)
+            if (value >= 1 && value <= 32)
                 return value;
         } else if (subject == "month") {
-            if (value >= 1 and value <= 12)
+            if (value >= 1 && value <= 12)
                 return value;
         } else
             if (value >= 1)
