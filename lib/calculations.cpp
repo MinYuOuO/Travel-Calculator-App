@@ -168,5 +168,20 @@ double hotelExpenses::calculateReimbursedHotelFee(int days) {
 }
 
 double mealExpenses::calculateReimbursedMeals() {
-    return 1;
+    double reimbursed = 0.0;
+
+    // Reimbursement is limited to the max allowance per meal
+    reimbursed += (breakfastCost <= breakfastAllowance) ? breakfastCost : breakfastAllowance;
+    reimbursed += (lunchCost <= lunchAllowance) ? lunchCost : lunchAllowance;
+    reimbursed += (dinnerCost <= dinnerAllowance) ? dinnerCost : dinnerAllowance;
+
+    totalMealCost = breakfastCost + lunchCost + dinnerCost;
+
+    // You can also output excess amount if needed:
+    double excess = totalMealCost - reimbursed;
+    if (excess > 0) {
+        std::cout << "Excess amount to be paid by employee: $" << excess << std::endl;
+    }
+
+    return reimbursed;
 }
