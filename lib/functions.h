@@ -157,3 +157,9 @@ public:
     
     double calculateConferenceFee();
 };
+
+// inheritance class
+class user : public trip, public transportationExpenses, public parkingExpenses, public hotelExpenses, public mealExpenses, public ConferenceOrRegistrationExpenses {
+public:
+    string userID;
+};

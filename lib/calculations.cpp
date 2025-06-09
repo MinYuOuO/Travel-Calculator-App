@@ -24,7 +24,22 @@ int inputValue(const string subject, int dummy) {
     value = -1; // 以防在进行判断前value已经有数值
     
     do {
-        cout << "Enter " << subject << " Amount: ";
+        if (subject == "day") {
+            cout << "Enter " << subject << ": ";
+            cin >> value;
+            if (value < 0 and value <= 32) {
+            cout << "Value cannot be negative. Please try again." << endl;
+            value = -1;
+            }
+        } else if (subject == "month") {
+            cout << "Enter " << subject << ": ";
+            cin >> value;
+            if (value < 0 and value <= 12) {
+            cout << "Value cannot be negative. Please try again." << endl;
+            value = -1;
+            }
+        } else
+        cout << "Enter " << subject << ": ";
         cin >> value;
         if (value < 0) {
             cout << "Value cannot be negative. Please try again." << endl;
@@ -32,7 +47,6 @@ int inputValue(const string subject, int dummy) {
         }
     } while (value < 0); // Ensure the value is non-negative
     return value;
-    
 }
 
 int trip::calculateTotalDays() {
@@ -153,15 +167,17 @@ double ConferenceOrRegistrationExpenses::calculateConferenceFee(){
 
 
 double hotelExpenses::calculateReimbursedHotelFee(int days) {
-    totalHotelExpenses = hotelFeePerNight * days;
+    double hotelExpenses = hotelFeePerNight * days;
 
     double allowedAmount = highestHotelFeePerNight * days;
 
-    if (totalHotelExpenses > allowedAmount) {
-        cout << "Excess (to be paid by employee): $"
-             << totalHotelExpenses - allowedAmount << endl;
+    if (hotelExpenses > allowedAmount) {
+        totalHotelExpenses += allowedAmount;
+        cout << "The Payment Excess: $" << totalHotelExpenses - allowedAmount << endl;
+        return allowedAmount;
     } else {
-        cout << "No excess payment required by employee." << endl;
+        totalHotelExpenses += hotelExpenses;
+        return hotelExpenses;
     }
 
     return allowedAmount;
@@ -185,3 +201,7 @@ double mealExpenses::calculateReimbursedMeals() {
 
     return reimbursed;
 }
+
+class user : public trip, transportationExpenses, parkingExpenses, hotelExpenses, mealExpenses, ConferenceOrRegistrationExpenses {
+
+};
