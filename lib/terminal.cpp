@@ -174,6 +174,11 @@ void displayMenu()
             if (newUser.calculateTotalDays() >= true) {
                 return travelExpenses();
             } else {
+                cin.get();
+                cout << "Invalid: Ending date is before starting date!" << endl;
+                cout << "------------------------------------";
+                cout << '\n' << "Press a key to continue...";
+                cin.get();
                 return displayMenu();
             };
 

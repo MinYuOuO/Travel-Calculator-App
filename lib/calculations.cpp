@@ -63,7 +63,6 @@ int trip::calculateTotalDays() {
     int days = static_cast<int>(secondsDiff / (60 * 60 * 24));
 
     if (days < 0) {
-        cout << "Invalid: Ending date is before starting date!" << endl;
         return 0; // 返回天数为0，同时是false值，进行返回判断可查返回值是否正确
     }
 
