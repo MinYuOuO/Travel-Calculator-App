@@ -44,7 +44,35 @@ int inputValue(const string subject, int dummy) {
 }
 
 int trip::calculateTotalDays() {
-    
+     int year = 2025; // fixed year assumption for your assignment
+
+    tm startDate = {};
+    startDate.tm_mday = startingDay;
+    startDate.tm_mon = startingMonth - 1; // months in tm are 0-based
+    startDate.tm_year = year - 1900;
+
+    tm endDate = {};
+    endDate.tm_mday = endingDay;
+    endDate.tm_mon = endingMonth - 1;
+    endDate.tm_year = year - 1900;
+
+    time_t start = mktime(&startDate);
+    time_t end = mktime(&endDate);
+
+    if (start == -1 || end == -1) {
+        cout << "Error: Date conversion failed." << endl;
+        return -1;
+    }
+
+    double secondsDiff = difftime(end, start);
+    int days = static_cast<int>(secondsDiff / (60 * 60 * 24));
+
+    if (days < 0) {
+        cout << "Invalid: Ending date is before starting date!" << endl;
+        return -1;
+    }
+
+    totalTripDays = days + 1; // include both start and end day
     return totalTripDays;
 }
 
