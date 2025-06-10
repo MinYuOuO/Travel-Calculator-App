@@ -44,7 +44,7 @@ int inputValue(const string subject, int dummy) {
 }
 
 int trip::calculateTotalDays() {
-     int year = 2025; // fixed year assumption for your assignment
+    int year = 2025;
 
     tm startDate = {};
     startDate.tm_mday = startingDay;
@@ -59,17 +59,12 @@ int trip::calculateTotalDays() {
     time_t start = mktime(&startDate);
     time_t end = mktime(&endDate);
 
-    if (start == -1 || end == -1) {
-        cout << "Error: Date conversion failed." << endl;
-        return -1;
-    }
-
     double secondsDiff = difftime(end, start);
     int days = static_cast<int>(secondsDiff / (60 * 60 * 24));
 
     if (days < 0) {
         cout << "Invalid: Ending date is before starting date!" << endl;
-        return -1;
+        return 0; // 返回天数为0，同时是false值，进行返回判断可查返回值是否正确
     }
 
     totalTripDays = days + 1; // include both start and end day

@@ -35,8 +35,7 @@ int inputValue(const string subject, int dummy);
  * @param startingMonth Starting month of the trip
  * @param endingDay Ending day of the trip
  * @param endingMonth Ending month of the trip
- * @param totalNumberOfDays Total number of days for the trip
- * @param totalTripCost Total cost of the trip
+ * @param totalTripDays Total number of days for the trip
  * @param totalTripCost Total cost of the trip
  */
 class trip {
@@ -47,10 +46,8 @@ public:
     int endingDay = 1;  // Ending day of the trip
     int endingMonth = 1; // Ending month of the1 trip
 
-    int totalNumberOfDays = 1; // Total number of days for the trip
+    int totalTripDays = 0; // Total number of days for the trip
     double totalTripCost = 0.00; // Total cost of the trip
-
-    int totalTripDays; // Total number of days for the trip
 
     int calculateTotalDays();
 };

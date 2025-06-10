@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Old Reference before inheritance class retreve
 // trip tripUser; // Object for trip-related data
 // transportationExpenses transportUser; // Object for transportation-related data
 // parkingExpenses parkingUser; // Object for parking-related data
@@ -74,7 +75,7 @@ void travelExpenses() {
         break;
     case 7:
         newUser.hotelFeePerNight = inputValue("Hotel Expenses");
-        cout << "Data Insert" << newUser.calculateReimbursedHotelFee(newUser.totalNumberOfDays);
+        cout << "Data Insert" << newUser.calculateReimbursedHotelFee(newUser.totalTripDays);
         cout << "Total hotel expenses: " << newUser.totalHotelExpenses << endl;
         cin.get();
         break;
@@ -110,7 +111,7 @@ void expensesReport() {
     cout << "------------------------------------" << endl;
 
     // Trip Duration Information
-    cout << "Trip Duration: " << newUser.totalNumberOfDays << " days" << endl;
+    cout << "Trip Duration: " << newUser.totalTripDays << " days" << endl;
     cout << "From:  Day " << newUser.startingDay << " / " << newUser.startingMonth << endl;
     cout << "To:    Day " << newUser.endingDay << " / " << newUser.endingMonth << endl;
     cout << "------------------------------------" << endl;
@@ -169,13 +170,17 @@ void displayMenu()
 
             cout << "\nEnter ending month of the trip" << endl;
             newUser.endingMonth = inputValue("month", 0);
-
-            newUser.totalNumberOfDays = newUser.calculateTotalDays();
+            
+            if (newUser.calculateTotalDays() >= true) {
+                return travelExpenses();
+            } else {
+                return displayMenu();
+            };
 
             travelExpenses();
         }
         else if (n == 2) {
-            cin.get(); // 不要问我为什么要放两个，删了就会出bug
+            cin.get();
             expensesReport();
             cout << "------------------------------------";
             cout << '\n' << "Press a key to continue...";
@@ -186,7 +191,7 @@ void displayMenu()
             exit(0);
         }
         else {
-            cin.get(); // 不要问我为什么要放两个，删了就会出bug
+            cin.get();
             cout << "Error: Invalid choice. Please try again." << endl;
             cout << "------------------------------------";
             cout << '\n' << "Press a key to continue...";
