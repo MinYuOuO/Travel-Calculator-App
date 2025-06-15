@@ -93,13 +93,15 @@ double transportationExpenses::calculateMilesReimbursement() {
  */
 double transportationExpenses::calculateTaxiFee() {
     // excess of maximum taxi fee paid by employee
-    if (totalTaxiFee <= maxTaxiFeePerDay) {
-        totalTransportationCost += totalTaxiFee;
+    if (taxiFee <= maxTaxiFeePerDay) {
+        totalTaxiFee += taxiFee;
+        totalTransportationCost += taxiFee;
         return totalTaxiFee;
     }
-    else if (totalTaxiFee > maxTaxiFeePerDay) {
+    else if (taxiFee > maxTaxiFeePerDay) {
+        totalTaxiFee += maxTaxiFeePerDay;
         totalTransportationCost += maxTaxiFeePerDay;
-        return maxTaxiFeePerDay;
+        return totalTaxiFee;
     }
     else {
         return 0.00; // No taxi fee
@@ -123,12 +125,13 @@ double transportationExpenses::calculateAirfare() {
 
 /**
  * @brief Calculates the total car rental cost.
- * @return carRental: double
+ * @return totalCarRental: double
  */
 double transportationExpenses::calculateCarRental() {
     // Calculate the total car rental cost
-    if (totalCarRental > 0) {
-        totalTransportationCost += totalCarRental;
+    if (carRental > 0) {
+        totalCarRental += carRental;
+        totalTransportationCost += carRental;
         return totalCarRental;
     }
     else {

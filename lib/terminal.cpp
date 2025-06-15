@@ -32,50 +32,50 @@ void travelExpenses() {
     cout << "7. Hotel Expenses" << endl;
     cout << "8. Meal Expenses" << endl;
     cout << "9. Back" << endl;
-    cout << "Please select an option: ";
+    cout << "Please select an option: " << endl;
     cin >> choose;
     cout << "------------------------------------" << endl;
 
     switch (choose) {
     case 1:
-    newUser.totalRoundTrip = inputValue("Round-trip Airfare");
-    cout << "Data Insert" << newUser.calculateAirfare();
+        newUser.totalRoundTrip = inputValue("Round-trip Airfare");
+        cout << "Data Insert" << newUser.calculateAirfare() << endl;
         cout << "Total Transportation Cost:" << newUser.totalTransportationCost << endl;
         cin.get(); // 不要问我为什么要放两个cin.get()，删了就会出bug
         break;
     case 2:
-    newUser.totalCarRental = inputValue("Car Rental");
-    cout << "Data Insert" << newUser.calculateCarRental();
+        newUser.totalCarRental = inputValue("Car Rental");
+        cout << "Data Insert" << newUser.calculateCarRental() << endl;
         cout << "Total Transportation Cost:" << newUser.totalTransportationCost << endl;
         cin.get();
         break;
     case 3:
-    newUser.milesDriven = inputValue("Miles Driven");
-    cout << "Data Insert" << newUser.calculateMilesReimbursement();\
+        newUser.milesDriven = inputValue("Miles Driven");
+        cout << "Data Insert" << newUser.calculateMilesReimbursement() << endl;
         cout << "Total Transportation Cost:" << newUser.totalTransportationCost << endl;
         cin.get();
         break;
     case 4:
         newUser.parkingFeePerDay = inputValue("Parking Fee");
-        cout << "Data Insert" << newUser.calculationParkingFee();
+        cout << "Data Insert" << newUser.calculationParkingFee() << endl;
         cout << "Total parking fee: " << newUser.totalParkingFee << endl;
         cin.get();
         break;
     case 5:
-    newUser.totalTaxiFee = inputValue("Taxi Fee");
-    cout << "Data Insert" << newUser.calculateTaxiFee();
+        newUser.totalTaxiFee = inputValue("Taxi Fee");
+        cout << "Data Insert" << newUser.calculateTaxiFee() << endl;
         cout << "Total transportation cost: " << newUser.totalTransportationCost << endl;
         cin.get();
         break;
     case 6:
         newUser.conferenceFee = inputValue("Conference or Seminar Registration Fee");
-        cout << "Data Insert" << newUser.calculateConferenceFee();
+        cout << "Data Insert" << newUser.calculateConferenceFee() << endl;
         cout << "Total transportation cost: " << newUser.totalConferenceFee << endl;
         cin.get();
         break;
     case 7:
         newUser.hotelFeePerNight = inputValue("Hotel Expenses");
-        cout << "Data Insert" << newUser.calculateReimbursedHotelFee(newUser.totalTripDays);
+        cout << "Data Insert" << newUser.calculateReimbursedHotelFee(newUser.totalTripDays) << endl;
         cout << "Total hotel expenses: " << newUser.totalHotelExpenses << endl;
         cin.get();
         break;
@@ -83,7 +83,7 @@ void travelExpenses() {
         newUser.breakfastCost = inputValue("Breakfast Cost");
         newUser.lunchCost = inputValue("Lunch Cost");
         newUser.dinnerCost = inputValue("Dinner Cost");
-        cout << "Data Insert" << newUser.calculateReimbursedMeals();
+        cout << "Data Insert" << newUser.calculateReimbursedMeals() << endl;
         cout << "Total meal cost: " << newUser.totalMealCost << endl;
         cin.get();
         break;
@@ -94,8 +94,8 @@ void travelExpenses() {
         cin.get();
     }
 
-    cout << "------------------------------------";
-    cout << '\n' << "Press a key to continue...";
+    cout << "------------------------------------" << endl;
+    cout << '\n' << "Press a key to continue..." << endl;
     cin.get();
     return travelExpenses();
 }
@@ -176,8 +176,8 @@ void displayMenu()
             } else {
                 cin.get();
                 cout << "Invalid: Ending date is before starting date!" << endl;
-                cout << "------------------------------------";
-                cout << '\n' << "Press a key to continue...";
+                cout << "------------------------------------" << endl;
+                cout << '\n' << "Press a key to continue..." << endl;
                 cin.get();
                 return displayMenu();
             };
@@ -187,8 +187,8 @@ void displayMenu()
         else if (n == 2) {
             cin.get();
             expensesReport();
-            cout << "------------------------------------";
-            cout << '\n' << "Press a key to continue...";
+            cout << "------------------------------------" << endl;
+            cout << '\n' << "Press a key to continue..." << endl;
             cin.get();
         }
         else if (n == 3) {
@@ -198,8 +198,8 @@ void displayMenu()
         else {
             cin.get();
             cout << "Error: Invalid choice. Please try again." << endl;
-            cout << "------------------------------------";
-            cout << '\n' << "Press a key to continue...";
+            cout << "------------------------------------" << endl;
+            cout << '\n' << "Press a key to continue..." << endl;
             cin.get();
             return displayMenu();
         }

@@ -66,11 +66,13 @@ public:
 /**
  * @class transportationExpenses
  * @brief transportation expenses information for travel expenses.
- *
+ * 
+ * @param carRental
+ * @param taxiFee
+ * @param milesDriven Total miles driven
  * @param totalTransportationCost Total transportation cost
  * @param totalRoundTrip Total round trip airfare
  * @param totalCarRental Total cost of car rental
- * @param milesDriven Total miles driven
  * @param totalTaxiFee Total taxi fee
  *
  * @param maxAllowancePerMile Allowance per mile for reimbursement
@@ -78,10 +80,12 @@ public:
  */
 class transportationExpenses {
 public:
+    double carRental;
+    double taxiFee;
+    double milesDriven; // Total miles driven
     double totalTransportationCost;
     double totalRoundTrip; // Total round trip miles
     double totalCarRental; // Total cost of car rental
-    double milesDriven; // Total miles driven
     double totalTaxiFee;
 
     transportationExpenses() {
@@ -100,7 +104,7 @@ public:
 
 protected:
     const double maxAllowancePerMile = 0.58; // Allowance per mile for reimbursement
-    const double maxTaxiFeePerDay = 40;
+    const double maxTaxiFeePerDay = 40; //Taxi fee per day
 };
 
 /**
