@@ -114,8 +114,9 @@ double transportationExpenses::calculateTaxiFee() {
  */
 double transportationExpenses::calculateAirfare() {
     // Calculate the total round trip airfare
-    if (totalRoundTrip > 0) {
-        totalTransportationCost += totalRoundTrip;
+    if (roundTrip > 0) {
+        totalRoundTrip += roundTrip;
+        totalTransportationCost += roundTrip;
         return totalRoundTrip;
     }
     else {
@@ -146,7 +147,8 @@ double transportationExpenses::calculateCarRental() {
 double transportationExpenses::calculationVehicleAllowance() {
     // Calculate the total vehicle allowance based on miles driven
     if (milesDriven > 0) {
-        return milesDriven * maxAllowancePerMile;
+        totalFuelCost += milesDriven * maxAllowancePerMile;
+        return totalFuelCost;
     }
     else {
         return 0.00; // No miles driven
@@ -155,9 +157,10 @@ double transportationExpenses::calculationVehicleAllowance() {
 
 /**
  * @brief Calculates the parking allowance
+ * @param days Insert total of days
  * @return ParkingFee: double
  */
-double parkingExpenses::calculationParkingFee() {
+double parkingExpenses::calculationParkingFee(int days) {
     // Calculate the total parking fee, ensuring it does not exceed the maximum allowed fee
     if (parkingFeePerDay > 0) {
         if (parkingFeePerDay <= highestParkingFee) {

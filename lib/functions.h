@@ -83,17 +83,23 @@ public:
     double carRental;
     double taxiFee;
     double milesDriven; // Total miles driven
+    double roundTrip;
     double totalTransportationCost;
     double totalRoundTrip; // Total round trip miles
     double totalCarRental; // Total cost of car rental
     double totalTaxiFee;
+    double totalFuelCost;
 
     transportationExpenses() {
+        carRental = 0.00;
+        taxiFee = 0.00;
+        milesDriven = 0.00;
+        roundTrip = 0.00;
         totalTransportationCost = 0.00;
         totalRoundTrip = 0.00; 
         totalCarRental = 0.00;
-        milesDriven = 0.00;
         totalTaxiFee = 0.00;
+        totalFuelCost = 0.00;
     }
 
     double calculateMilesReimbursement();
@@ -124,7 +130,7 @@ public:
         parkingFeePerDay = 0.00;
     }
 
-    double calculationParkingFee();
+    double calculationParkingFee(int days);
     
 protected:
     const double highestParkingFee = 12; // Highest parking fee allowed per day

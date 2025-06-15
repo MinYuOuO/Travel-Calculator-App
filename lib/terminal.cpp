@@ -38,39 +38,39 @@ void travelExpenses() {
 
     switch (choose) {
     case 1:
-        newUser.totalRoundTrip = inputValue("Round-trip Airfare");
-        cout << "Data Insert" << newUser.calculateAirfare() << endl;
-        cout << "Total Transportation Cost:" << newUser.totalTransportationCost << endl;
+        newUser.roundTrip = inputValue("Round-trip Airfare");
+        cout << "Data Insert: " << newUser.calculateAirfare() << endl;
+        cout << "Total Round Trip Cost:" << newUser.totalRoundTrip << endl;
         cin.get(); // 不要问我为什么要放两个cin.get()，删了就会出bug
         break;
     case 2:
-        newUser.totalCarRental = inputValue("Car Rental");
-        cout << "Data Insert" << newUser.calculateCarRental() << endl;
-        cout << "Total Transportation Cost:" << newUser.totalTransportationCost << endl;
+        newUser.carRental = inputValue("Car Rental");
+        cout << "Data Insert " << newUser.calculateCarRental() << endl;
+        cout << "Total Car Rental Cost:" << newUser.totalCarRental << endl;
         cin.get();
         break;
     case 3:
         newUser.milesDriven = inputValue("Miles Driven");
-        cout << "Data Insert" << newUser.calculateMilesReimbursement() << endl;
-        cout << "Total Transportation Cost:" << newUser.totalTransportationCost << endl;
+        cout << "Data Insert: " << newUser.calculateMilesReimbursement() << endl;
+        cout << "Total Fuel Cost:" << newUser.totalFuelCost << endl;
         cin.get();
         break;
     case 4:
         newUser.parkingFeePerDay = inputValue("Parking Fee");
-        cout << "Data Insert" << newUser.calculationParkingFee() << endl;
+        cout << "Data Insert: " << newUser.calculationParkingFee(newUser.totalTripDays) << endl;
         cout << "Total parking fee: " << newUser.totalParkingFee << endl;
         cin.get();
         break;
     case 5:
-        newUser.totalTaxiFee = inputValue("Taxi Fee");
-        cout << "Data Insert" << newUser.calculateTaxiFee() << endl;
-        cout << "Total transportation cost: " << newUser.totalTransportationCost << endl;
+        newUser.taxiFee = inputValue("Taxi Fee");
+        cout << "Data Insert: " << newUser.calculateTaxiFee() << endl;
+        cout << "Total transportation cost: " << newUser.totalTaxiFee << endl;
         cin.get();
         break;
     case 6:
         newUser.conferenceFee = inputValue("Conference or Seminar Registration Fee");
-        cout << "Data Insert" << newUser.calculateConferenceFee() << endl;
-        cout << "Total transportation cost: " << newUser.totalConferenceFee << endl;
+        cout << "Data Insert: " << newUser.calculateConferenceFee() << endl;
+        cout << "Total Fee: " << newUser.totalConferenceFee << endl;
         cin.get();
         break;
     case 7:
@@ -120,14 +120,14 @@ void expensesReport() {
     cout << "Transportation Expenses" << endl;
     cout << "Airfare:                       $" << newUser.totalRoundTrip << endl;
     cout << "Car Rental:                    $" << newUser.totalCarRental << endl;
-    cout << "Mileage Reimbursement:         $" << newUser.milesDriven << endl;
+    cout << "Mileage Reimbursement:         $" << newUser.totalFuelCost << endl;
     cout << "Taxi Fees:                     $" << newUser.totalTaxiFee << endl;
     cout << "Total Transportation Expenses: $" << newUser.totalTransportationCost << endl;
     cout << "------------------------------------" << endl;
 
     // Parking Expenses
     cout << "Parking Expenses" << endl;
-    cout << "Daily Parking Fee:             $" << newUser.parkingFeePerDay << endl;
+    cout << "Daily Parking Fee:             $" << newUser.parkingFeePerDay << " * " << newUser.totalTripDays << endl;
     cout << "Total Expenses:                $" << newUser.totalParkingFee << endl;
     cout << "------------------------------------" << endl;
     
@@ -138,7 +138,7 @@ void expensesReport() {
 
     // Hotel Expenses
     cout << "Hotel Expenses" << endl;
-    cout << "Hotel Fee Per Night:           $" << newUser.hotelFeePerNight << endl;
+    cout << "Hotel Fee Per Night:           $" << newUser.hotelFeePerNight << " * " << newUser.totalTripDays << endl;
     cout << "Total Hotel Expenses:          $" << newUser.totalHotelExpenses << endl;
 }
 
