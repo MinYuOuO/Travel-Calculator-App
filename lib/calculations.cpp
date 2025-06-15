@@ -151,7 +151,7 @@ double transportationExpenses::calculationVehicleAllowance() {
 }
 
 /**
- * @brief 
+ * @brief Calculates the parking allowance
  * @return ParkingFee: double
  */
 double parkingExpenses::calculationParkingFee() {
@@ -171,6 +171,10 @@ double parkingExpenses::calculationParkingFee() {
     }
 }
 
+/**
+ * @brief Calculate conference or registration expenses
+ * @return conferenceFee: double 
+ */
 double ConferenceOrRegistrationExpenses::calculateConferenceFee(){
     if (conferenceFee >0){
         totalConferenceFee += conferenceFee;
@@ -182,6 +186,11 @@ double ConferenceOrRegistrationExpenses::calculateConferenceFee(){
 }
 
 
+/**
+ * @brief Calculate hotel total reimbursed fee
+ * @param days Insert total of days
+ * @return totalHotelExpenses: double 
+ */
 double hotelExpenses::calculateReimbursedHotelFee(int days) {
     double hotelExpenses = hotelFeePerNight * days;
 
@@ -199,6 +208,11 @@ double hotelExpenses::calculateReimbursedHotelFee(int days) {
     return allowedAmount;
 }
 
+/**
+ * @brief calculate total of breakfast, lunch, and dinner cost
+ * 
+ * @return totalMealCost: double 
+ */
 double mealExpenses::calculateReimbursedMeals() {
     double reimbursed = 0.0;
 
@@ -209,7 +223,7 @@ double mealExpenses::calculateReimbursedMeals() {
 
     totalMealCost = breakfastCost + lunchCost + dinnerCost;
 
-    // You can also output excess amount if needed:
+    // output excess amount:
     double excess = totalMealCost - reimbursed;
     if (excess > 0) {
         std::cout << "Excess amount to be paid by employee: $" << excess << std::endl;

@@ -40,14 +40,25 @@ int inputValue(const string subject, int dummy);
  */
 class trip {
 public:
-    int startingDay = 1; // Starting day of the trip
-    int startingMonth = 1; // Starting month of the trip
+    int startingDay; // Starting day of the trip
+    int startingMonth; // Starting month of the trip
 
-    int endingDay = 1;  // Ending day of the trip
-    int endingMonth = 1; // Ending month of the1 trip
+    int endingDay;  // Ending day of the trip
+    int endingMonth; // Ending month of the1 trip
 
-    int totalTripDays = 0; // Total number of days for the trip
-    double totalTripCost = 0.00; // Total cost of the trip
+    int totalTripDays; // Total number of days for the trip
+    double totalTripCost; // Total cost of the trip
+
+    trip() {
+        startingDay = 1;
+        startingMonth = 1;
+
+        endingDay = 1;
+        endingMonth = 1;
+
+        totalTripDays = 0;
+        totalTripCost = 0;
+    }
 
     int calculateTotalDays();
 };
@@ -67,11 +78,19 @@ public:
  */
 class transportationExpenses {
 public:
-    double totalTransportationCost = 0.00;
-    double totalRoundTrip = 0.00; // Total round trip miles
-    double totalCarRental = 0.00; // Total cost of car rental
-    double milesDriven = 0.00; // Total miles driven
-    double totalTaxiFee = 0.00;
+    double totalTransportationCost;
+    double totalRoundTrip; // Total round trip miles
+    double totalCarRental; // Total cost of car rental
+    double milesDriven; // Total miles driven
+    double totalTaxiFee;
+
+    transportationExpenses() {
+        totalTransportationCost = 0.00;
+        totalRoundTrip = 0.00; 
+        totalCarRental = 0.00;
+        milesDriven = 0.00;
+        totalTaxiFee = 0.00;
+    }
 
     double calculateMilesReimbursement();
     double calculateTaxiFee();
@@ -93,9 +112,14 @@ protected:
  */
 class parkingExpenses {
 public:
-    double totalParkingFee = 0.00;
-    double parkingFeePerDay = 0.00; // Parking fee per day
+    double totalParkingFee;
+    double parkingFeePerDay; // Parking fee per day
     
+    parkingExpenses() {
+        totalParkingFee = 0.00;
+        parkingFeePerDay = 0.00;
+    }
+
     double calculationParkingFee();
     
 protected:
@@ -112,8 +136,13 @@ protected:
  */
 class hotelExpenses {
 public:
-    double totalHotelExpenses = 0.00;
-    double hotelFeePerNight = 0.00; // Hotel fee per night
+    double totalHotelExpenses;
+    double hotelFeePerNight; // Hotel fee per night
+
+    hotelExpenses() {
+        totalHotelExpenses = 0.00;
+        hotelFeePerNight = 0.00;
+    }
 
     double calculateReimbursedHotelFee(int days);
 
@@ -142,7 +171,13 @@ public:
     double dinnerCost = 0.00;
     double totalMealCost = 0.00;
 
-    
+    mealExpenses() {
+        breakfastCost = 0.00;
+        lunchCost = 0.00;
+        dinnerCost = 0.00;
+        totalMealCost = 0.00;
+    }
+
     double calculateReimbursedMeals();
     
 protected:
@@ -156,6 +191,11 @@ class ConferenceOrRegistrationExpenses {
 public:
     double totalConferenceFee;
     double conferenceFee;
+
+    ConferenceOrRegistrationExpenses() {
+        totalConferenceFee = 0;
+        conferenceFee = 0;
+    }
     
     double calculateConferenceFee();
 };
@@ -167,5 +207,9 @@ public:
  */
 class user : public trip, public transportationExpenses, public parkingExpenses, public hotelExpenses, public mealExpenses, public ConferenceOrRegistrationExpenses {
 public:
-    string userID;
+    char userID;
+
+    user() {
+        userID = 0;
+    }
 };
