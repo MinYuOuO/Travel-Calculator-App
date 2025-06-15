@@ -1,5 +1,6 @@
 #include "functions.h"
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -44,29 +45,29 @@ int inputValue(const string subject, int dummy) {
 }
 
 int trip::calculateTotalDays() {
-    int year = 2025;
+    const int CURRENT_YEAR = 2025;
 
     tm startDate = {};
     startDate.tm_mday = startingDay;
     startDate.tm_mon = startingMonth - 1; // months in tm are 0-based
-    startDate.tm_year = year - 1900;
+    startDate.tm_year = CURRENT_YEAR - 1900;
 
     tm endDate = {};
     endDate.tm_mday = endingDay;
     endDate.tm_mon = endingMonth - 1;
-    endDate.tm_year = year - 1900;
+    endDate.tm_year = CURRENT_YEAR - 1900;
 
     time_t start = mktime(&startDate);
     time_t end = mktime(&endDate);
 
-    double secondsDiff = difftime(end, start);
-    int days = static_cast<int>(secondsDiff / (60 * 60 * 24));
+    const int secondsPerDay = 60 * 60 * 24;
+    int daysDifference = (end - start) / secondsPerDay;
 
-    if (days < 0) {
+    if (daysDifference < 0) {
         return 0; // 返回天数为0，同时是false值，进行返回判断可查返回值是否正确
     }
 
-    totalTripDays = days + 1; // include both start and end day
+    totalTripDays = daysDifference + 1; // include both start and end day
     return totalTripDays;
 }
 
@@ -78,6 +79,7 @@ int trip::calculateTotalDays() {
 double transportationExpenses::calculateMilesReimbursement() {
     // Calculate the reimbursement for miles driven
     if (milesDriven > 0) {
+        totalFuelCost += milesDriven * maxAllowancePerMile;
         totalTransportationCost += milesDriven * maxAllowancePerMile;
         return milesDriven * maxAllowancePerMile;
     }
@@ -204,7 +206,6 @@ double hotelExpenses::calculateReimbursedHotelFee(int days) {
 
     if (hotelExpenses > allowedAmount) {
         totalHotelExpenses += allowedAmount;
-        cout << "The Payment Excess: $" << totalHotelExpenses - allowedAmount << endl;
         return allowedAmount;
     } else {
         totalHotelExpenses += hotelExpenses;
@@ -227,13 +228,10 @@ double mealExpenses::calculateReimbursedMeals() {
     reimbursed += (lunchCost <= lunchAllowance) ? lunchCost : lunchAllowance;
     reimbursed += (dinnerCost <= dinnerAllowance) ? dinnerCost : dinnerAllowance;
 
-    totalMealCost = breakfastCost + lunchCost + dinnerCost;
+    totalMealCost += breakfastCost + lunchCost + dinnerCost;
 
     // output excess amount:
     double excess = totalMealCost - reimbursed;
-    if (excess > 0) {
-        std::cout << "Excess amount to be paid by employee: $" << excess << std::endl;
-    }
 
     return reimbursed;
 }

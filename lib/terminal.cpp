@@ -32,51 +32,56 @@ void travelExpenses() {
     cout << "7. Hotel Expenses" << endl;
     cout << "8. Meal Expenses" << endl;
     cout << "9. Back" << endl;
-    cout << "Please select an option: " << endl;
+    cout << "Please select an option: ";
     cin >> choose;
     cout << "------------------------------------" << endl;
 
     switch (choose) {
     case 1:
         newUser.roundTrip = inputValue("Round-trip Airfare");
-        cout << "Data Insert: " << newUser.calculateAirfare() << endl;
-        cout << "Total Round Trip Cost:" << newUser.totalRoundTrip << endl;
+        cout << "Data Insert: $" << newUser.calculateAirfare() << endl;
+        cout << "Total Round Trip Cost: $" << newUser.totalRoundTrip << endl;
+        cout << "Total Transportation Expenses: $" << newUser.totalTransportationCost << endl;
         cin.get(); // 不要问我为什么要放两个cin.get()，删了就会出bug
         break;
     case 2:
         newUser.carRental = inputValue("Car Rental");
-        cout << "Data Insert " << newUser.calculateCarRental() << endl;
-        cout << "Total Car Rental Cost:" << newUser.totalCarRental << endl;
+        cout << "Data Insert $" << newUser.calculateCarRental() << endl;
+        cout << "Total Car Rental Cost: $" << newUser.totalCarRental << endl;
+        cout << "Total Transportation Expenses: $" << newUser.totalTransportationCost << endl;
         cin.get();
         break;
     case 3:
-        newUser.milesDriven = inputValue("Miles Driven");
-        cout << "Data Insert: " << newUser.calculateMilesReimbursement() << endl;
-        cout << "Total Fuel Cost:" << newUser.totalFuelCost << endl;
+        newUser.milesDriven = inputValue("Miles Driven (km)");
+        cout << "Data Insert: $" << newUser.calculateMilesReimbursement() << endl;
+        cout << "Total Fuel Cost: $" << newUser.totalFuelCost << endl;
+        cout << "Total Transportation Expenses: $" << newUser.totalTransportationCost << endl;
         cin.get();
         break;
     case 4:
         newUser.parkingFeePerDay = inputValue("Parking Fee");
-        cout << "Data Insert: " << newUser.calculationParkingFee(newUser.totalTripDays) << endl;
-        cout << "Total parking fee: " << newUser.totalParkingFee << endl;
+        cout << "Data Insert: $" << newUser.calculationParkingFee(newUser.totalTripDays) << endl;
+        cout << "Total parking fee: $" << newUser.totalParkingFee << endl;
+        cout << "Total Transportation Expenses: $" << newUser.totalTransportationCost << endl;
         cin.get();
         break;
     case 5:
         newUser.taxiFee = inputValue("Taxi Fee");
-        cout << "Data Insert: " << newUser.calculateTaxiFee() << endl;
-        cout << "Total transportation cost: " << newUser.totalTaxiFee << endl;
+        cout << "Data Insert: $" << newUser.calculateTaxiFee() << endl;
+        cout << "Total taxi cost: $" << newUser.totalTaxiFee << endl;
+        cout << "Total Transportation Expenses: $" << newUser.totalTransportationCost << endl;
         cin.get();
         break;
     case 6:
         newUser.conferenceFee = inputValue("Conference or Seminar Registration Fee");
-        cout << "Data Insert: " << newUser.calculateConferenceFee() << endl;
-        cout << "Total Fee: " << newUser.totalConferenceFee << endl;
+        cout << "Data Insert: $" << newUser.calculateConferenceFee() << endl;
+        cout << "Total Fee: $" << newUser.totalConferenceFee << endl;
         cin.get();
         break;
     case 7:
         newUser.hotelFeePerNight = inputValue("Hotel Expenses");
-        cout << "Data Insert" << newUser.calculateReimbursedHotelFee(newUser.totalTripDays) << endl;
-        cout << "Total hotel expenses: " << newUser.totalHotelExpenses << endl;
+        cout << "Data Insert: $" << newUser.calculateReimbursedHotelFee(newUser.totalTripDays) << endl;
+        cout << "Total hotel expenses: $" << newUser.totalHotelExpenses << endl;
         cin.get();
         break;
     case 8:
@@ -107,39 +112,44 @@ void travelExpenses() {
 void expensesReport() {
     system("cls");
 
-    cout << "===== Travel Expenses Report =====" << endl;
-    cout << "------------------------------------" << endl;
+    cout << "========== Travel Expenses Report ==========" << endl;
+    cout << "--------------------------------------------" << endl;
 
     // Trip Duration Information
     cout << "Trip Duration: " << newUser.totalTripDays << " days" << endl;
     cout << "From:  Day " << newUser.startingDay << " / " << newUser.startingMonth << endl;
     cout << "To:    Day " << newUser.endingDay << " / " << newUser.endingMonth << endl;
-    cout << "------------------------------------" << endl;
+    cout << "--------------------------------------------" << endl;
 
     // Transportation Expenses
     cout << "Transportation Expenses" << endl;
-    cout << "Airfare:                       $" << newUser.totalRoundTrip << endl;
-    cout << "Car Rental:                    $" << newUser.totalCarRental << endl;
-    cout << "Mileage Reimbursement:         $" << newUser.totalFuelCost << endl;
-    cout << "Taxi Fees:                     $" << newUser.totalTaxiFee << endl;
-    cout << "Total Transportation Expenses: $" << newUser.totalTransportationCost << endl;
-    cout << "------------------------------------" << endl;
+    cout << "Airfare:                               $" << newUser.totalRoundTrip << endl;
+    cout << "Car Rental:                            $" << newUser.totalCarRental << endl;
+    cout << "Mileage Reimbursement:                 $" << newUser.totalFuelCost << endl;
+    cout << "Taxi Fees:                             $" << newUser.totalTaxiFee << endl;
+    cout << "                                       -----" << endl;
+    cout << "Total Transportation Expenses:         $" << newUser.totalTransportationCost << endl;
+    cout << "                                       -----" << endl;
 
     // Parking Expenses
-    cout << "Parking Expenses" << endl;
-    cout << "Daily Parking Fee:             $" << newUser.parkingFeePerDay << " * " << newUser.totalTripDays << endl;
-    cout << "Total Expenses:                $" << newUser.totalParkingFee << endl;
-    cout << "------------------------------------" << endl;
+    cout << "Total Parking Expenses:                $" << newUser.totalParkingFee << endl;
+    cout << "                                       -----" << endl;
     
     // Conference/Registration Expenses
-    cout << "Conference/Registration" << endl;
-    cout << "Total Fees:                    $" << newUser.totalConferenceFee << endl;
-    cout << "------------------------------------" << endl;
+    cout << "Total Conference/Registration Fees:    $" << newUser.totalConferenceFee << endl;
+    cout << "                                       -----" << endl;
 
     // Hotel Expenses
-    cout << "Hotel Expenses" << endl;
-    cout << "Hotel Fee Per Night:           $" << newUser.hotelFeePerNight << " * " << newUser.totalTripDays << endl;
-    cout << "Total Hotel Expenses:          $" << newUser.totalHotelExpenses << endl;
+    cout << "Total Hotel Expenses:                  $" << newUser.totalHotelExpenses << endl;
+    cout << "                                       -----" << endl;
+
+    // Meal Expenses
+    cout << "Total Meal Expenses:                   $" << newUser.totalMealCost << endl;
+    cout << "                                       -----" << endl;
+    
+    newUser.totalTripCost = newUser.totalTransportationCost + newUser.totalParkingFee + newUser.totalConferenceFee + newUser.totalHotelExpenses + newUser.totalMealCost;
+    cout << "Total Cost:                            $" << newUser.totalTripCost << endl;
+    cout << "--------------------------------------------" << endl;
 }
 
 // Main menu function to display options to the user
@@ -159,19 +169,21 @@ void displayMenu()
         if (n == 1) {
             system("cls");
             cout << "Trip Cost Calculator" << endl;
-            cout << "Enter starting day of the trip" << endl;
-            newUser.startingDay = inputValue("day", 0);
-            
-            cout << "\nEnter starting month of the trip" << endl;
-            newUser.startingMonth = inputValue("month", 0);
+            if (newUser.startingDay <= 0 && newUser.startingMonth <= 0) {
+                cout << "Enter starting day of the trip" << endl;
+                newUser.startingDay = inputValue("day", 0);
+                
+                cout << "\nEnter starting month of the trip" << endl;
+                newUser.startingMonth = inputValue("month", 0);
 
-            cout << "\nEnter ending day of the trip" << endl;
-            newUser.endingDay = inputValue("day", 0);
+                cout << "\nEnter ending day of the trip" << endl;
+                newUser.endingDay = inputValue("day", 0);
 
-            cout << "\nEnter ending month of the trip" << endl;
-            newUser.endingMonth = inputValue("month", 0);
+                cout << "\nEnter ending month of the trip" << endl;
+                newUser.endingMonth = inputValue("month", 0);
+            }
             
-            if (newUser.calculateTotalDays() >= true) {
+            if (newUser.calculateTotalDays() >= 0) {
                 return travelExpenses();
             } else {
                 cin.get();

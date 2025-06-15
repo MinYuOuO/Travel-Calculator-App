@@ -1,6 +1,7 @@
 #pragma once
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
+#include <ctime>
 
 using namespace std;
 
@@ -50,11 +51,11 @@ public:
     double totalTripCost; // Total cost of the trip
 
     trip() {
-        startingDay = 1;
-        startingMonth = 1;
+        startingDay = 0;
+        startingMonth = 0;
 
-        endingDay = 1;
-        endingMonth = 1;
+        endingDay = 0;
+        endingMonth = 0;
 
         totalTripDays = 0;
         totalTripCost = 0;
