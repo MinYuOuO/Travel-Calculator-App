@@ -4,44 +4,34 @@
 
 using namespace std;
 
+// For double values (e.g., amounts)
 double inputValue(const string subject) {
     double value;
-    value = -1; // 以防在进行判断前value已经有数值
-
-    do {
-        cout << "Enter " << subject << " Amount: ";
+    while (true) {
+        cout << "Enter " << subject << " Amount: " << endl;
         cin >> value;
-        if (value < 0) {
-            cout << "Value cannot be negative. Please try again." << endl;
+        if (cin.fail() || value < 0) {
+            cout << "Invalid input. Value must be a non-negative number. Please try again." << endl;
+            cin.clear();
+        } else {
+            return value;
         }
-    } while (value < 0); // Ensure the value is non-negative
-
-    return value;
+    }
 }
 
-int inputValue(const string subject, int dummy) {
+// For integer values with a range (e.g., day, month, generic positive integer)
+int inputValue(const string subject, int minValue, int maxValue) {
     int value;
-
-    do {
-        value = 0; // 以防在进行判断前value已经有数值
-
-        cout << "Enter " << subject << ": ";
+    while (true) {
+        cout << "Enter " << subject <<endl;
         cin >> value;
-
-        if (subject == "day") {
-            if (value >= 1 && value <= 32)
-                return value;
-        } else if (subject == "month") {
-            if (value >= 1 && value <= 12)
-                return value;
-        } else
-            if (value >= 1)
-                return value;
-        
-        cout << "Value cannot be negative. Please try again." << endl;
-    } while (value < 0); // Ensure the value is non-negative
-
-    return -1; // debug non-void function warning
+        if (cin.fail() || value < minValue || value > maxValue) {
+            cout << "Invalid input. Value must be between " << minValue << " and " << maxValue << ". Please try again." << endl;
+            cin.clear();
+        } else {
+            return value;
+        }
+    }
 }
 
 int trip::calculateTotalDays() {
@@ -162,8 +152,8 @@ double transportationExpenses::calculationVehicleAllowance() {
  * @param days Insert total of days
  * @return ParkingFee: double
  */
-double parkingExpenses::calculationParkingFee(int days) {
-    // Calculate the total parking fee, ensuring it does not exceed the maximum allowed fee
+double parkingExpenses::calculationParkingFee() {
+        // Calculate the total parking fee, ensuring it does not exceed the maximum allowed fee
     if (parkingFeePerDay > 0) {
         if (parkingFeePerDay <= highestParkingFee) {
             totalParkingFee += parkingFeePerDay;
@@ -171,6 +161,23 @@ double parkingExpenses::calculationParkingFee(int days) {
         }
         else {
             totalParkingFee += highestParkingFee;
+            return highestParkingFee;
+        }
+	}
+    else {
+        return 0.00; // No parking fee
+    }
+}
+
+double parkingExpenses::calculationParkingFee(int days) {
+    // Calculate the total parking fee, ensuring it does not exceed the maximum allowed fee
+    if (parkingFeePerDay > 0) {
+        if (parkingFeePerDay <= highestParkingFee) {
+            totalParkingFee += parkingFeePerDay * days;
+            return parkingFeePerDay;
+        }
+        else {
+            totalParkingFee += highestParkingFee * days;
             return highestParkingFee;
         }
 	}
@@ -193,6 +200,25 @@ double ConferenceOrRegistrationExpenses::calculateConferenceFee(){
     }
 }
 
+/**
+ * @brief Calculate hotel total reimbursed fee
+ * @return totalHotelExpenses: double 
+ */
+double hotelExpenses::calculateReimbursedHotelFee() {
+    double hotelExpenses = hotelFeePerNight;
+
+    double allowedAmount = highestHotelFeePerNight;
+
+    if (hotelExpenses > allowedAmount) {
+        totalHotelExpenses += allowedAmount;
+        return allowedAmount;
+    } else {
+        totalHotelExpenses += hotelExpenses;
+        return hotelExpenses;
+    }
+
+    return allowedAmount;
+}
 
 /**
  * @brief Calculate hotel total reimbursed fee

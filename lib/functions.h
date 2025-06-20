@@ -16,17 +16,21 @@ void travelExpenses();
  * @brief Prompts the user to input a value.
  * 
  * @param subject string subject title for the value
- * @return Validated double input value.
+ * @return Validated input value.
  */
 double inputValue(const string subject);
 
 /**
- * @brief Prompts the user to input a value.
- * 
+ * @brief Prompts the user to input a value
+ *  
  * @param subject string subject title for the value
- * @return Validated integer input value.
+ * @param minValue minimum value for the input
+ * @param maxValue maximum value for the input
+ * 
+ * @return Validated input value.
  */
-int inputValue(const string subject, int dummy);
+int inputValue(const string subject, int minValue, int maxValue);
+
 
 /**
  * @class trip
@@ -131,6 +135,7 @@ public:
         parkingFeePerDay = 0.00;
     }
 
+    double calculationParkingFee();
     double calculationParkingFee(int days);
     
 protected:
@@ -155,6 +160,7 @@ public:
         hotelFeePerNight = 0.00;
     }
 
+    double calculateReimbursedHotelFee();
     double calculateReimbursedHotelFee(int days);
 
 protected:
@@ -219,8 +225,10 @@ public:
 class user : public trip, public transportationExpenses, public parkingExpenses, public hotelExpenses, public mealExpenses, public ConferenceOrRegistrationExpenses {
 public:
     char userID;
+    string userName;
 
     user() {
         userID = 0;
+        userName = "UNKNOWN";
     }
 };

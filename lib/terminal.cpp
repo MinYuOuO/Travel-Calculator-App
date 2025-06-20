@@ -21,7 +21,7 @@ void travelExpenses() {
     //@brief Section of the code that handles user input
     int choose;
 
-    cout << "------------------------------------" << endl;
+    cout << "--------------------------------------------" << endl;
     cout << "Travel Calculator Menu:" << endl;
     cout << "1. Amount Round-trip airfare" << endl;
     cout << "2. Amount of Car Rentals" << endl;
@@ -34,7 +34,7 @@ void travelExpenses() {
     cout << "9. Back" << endl;
     cout << "Please select an option: ";
     cin >> choose;
-    cout << "------------------------------------" << endl;
+    cout << "--------------------------------------------" << endl;
 
     switch (choose) {
     case 1:
@@ -42,7 +42,7 @@ void travelExpenses() {
         cout << "Data Insert: $" << newUser.calculateAirfare() << endl;
         cout << "Total Round Trip Cost: $" << newUser.totalRoundTrip << endl;
         cout << "Total Transportation Expenses: $" << newUser.totalTransportationCost << endl;
-        cin.get(); // 不要问我为什么要放两个cin.get()，删了就会出bug
+        cin.get();
         break;
     case 2:
         newUser.carRental = inputValue("Car Rental");
@@ -99,7 +99,7 @@ void travelExpenses() {
         cin.get();
     }
 
-    cout << "------------------------------------" << endl;
+    cout << "--------------------------------------------" << endl;
     cout << '\n' << "Press a key to continue..." << endl;
     cin.get();
     return travelExpenses();
@@ -169,26 +169,27 @@ void displayMenu()
         if (n == 1) {
             system("cls");
             cout << "Trip Cost Calculator" << endl;
-            if (newUser.startingDay <= 0 && newUser.startingMonth <= 0) {
-                cout << "Enter starting day of the trip" << endl;
-                newUser.startingDay = inputValue("day", 0);
+            if (newUser.startingDay <= 0) // assume startingDay = 0 means first time editing
+            {
+                cout << "Enter starting day of the trip: ";
+                newUser.startingDay = inputValue("day", 1, 32);
                 
-                cout << "\nEnter starting month of the trip" << endl;
-                newUser.startingMonth = inputValue("month", 0);
+                cout << "\nEnter starting month of the trip: ";
+                newUser.startingMonth = inputValue("month", 1, 12);
 
-                cout << "\nEnter ending day of the trip" << endl;
-                newUser.endingDay = inputValue("day", 0);
+                cout << "\nEnter ending day of the trip: ";
+                newUser.endingDay = inputValue("day", 1, 32);
 
-                cout << "\nEnter ending month of the trip" << endl;
-                newUser.endingMonth = inputValue("month", 0);
+                cout << "\nEnter ending month of the trip: ";
+                newUser.endingMonth = inputValue("month", 1, 12);
             }
             
-            if (newUser.calculateTotalDays() >= 0) {
+            if (newUser.calculateTotalDays() >= 0) { // return 0 means errors occur
                 return travelExpenses();
             } else {
                 cin.get();
                 cout << "Invalid: Ending date is before starting date!" << endl;
-                cout << "------------------------------------" << endl;
+                cout << "--------------------------------------------" << endl;
                 cout << '\n' << "Press a key to continue..." << endl;
                 cin.get();
                 return displayMenu();
@@ -199,7 +200,7 @@ void displayMenu()
         else if (n == 2) {
             cin.get();
             expensesReport();
-            cout << "------------------------------------" << endl;
+            cout << "--------------------------------------------" << endl;
             cout << '\n' << "Press a key to continue..." << endl;
             cin.get();
         }
@@ -210,7 +211,7 @@ void displayMenu()
         else {
             cin.get();
             cout << "Error: Invalid choice. Please try again." << endl;
-            cout << "------------------------------------" << endl;
+            cout << "--------------------------------------------" << endl;
             cout << '\n' << "Press a key to continue..." << endl;
             cin.get();
             return displayMenu();
