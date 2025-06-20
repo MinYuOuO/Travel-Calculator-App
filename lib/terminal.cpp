@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <conio.h>
+#include <conio.h>
 #include "functions.h"
 
 using namespace std;
