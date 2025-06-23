@@ -13,7 +13,7 @@ A simple system developed using C++ to calculate expenses of a business person o
 # Project Structure：  
   
 Travel-Calculator-App/  
-├── lib/
+├── lib/  
 │   ├── main.cpp               	# Program entry point  
 │   ├── terminal.cpp           	# Display and handle user menu  
 │   ├── calculations.cpp       	# All calculation logic/functions are here  
