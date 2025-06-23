@@ -10,24 +10,20 @@ A simple system developed using C++ to calculate expenses of a business person o
 
 
 
-# Project Structure：
-
-Travel-Calculator-App/
+# Project Structure：  
+  
+Travel-Calculator-App/  
 ├── lib/
-│   ├── main.cpp               	# Program entry point
-│   ├── terminal.cpp           	# Display and handle user menu
-│   ├── calculations.cpp       	# All calculation logic/functions are here
-│   ├── functions.h           	# Functions and class declarations
-├── build/
-│   └── main.exe
-├── .vscode/ 				# Visual Studio Code invironment
+│   ├── main.cpp               	# Program entry point  
+│   ├── terminal.cpp           	# Display and handle user menu  
+│   ├── calculations.cpp       	# All calculation logic/functions are here  
+│   ├── functions.h           	# Functions and class declarations  
+├── build/  
+│   └── main.exe  
+├── .vscode/ 				# Visual Studio Code invironment  
 ├── README.md  
 └── LICENSE  
-
----
-
-
-
+  
 # Key functions：  
 
 -Calculate the total number of days spent on the trip.  
@@ -58,6 +54,6 @@ Travel-Calculator-App/
 
 
 
-# How to run:
-
-Run main.exe
+# How to run:  
+- Open and run with visual studio  
+- Run main.exe in release version 2.0.0  
