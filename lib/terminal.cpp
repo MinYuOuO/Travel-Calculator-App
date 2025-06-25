@@ -194,7 +194,7 @@ void displayMenu()
                 newUser.endingMonth = inputValue("month", 1, 12);
             }
             
-            if (newUser.calculateTotalDays() >= 0) { // return 0 means errors occur
+            if (newUser.calculateTotalDays() > 0) { // return 0 means errors occur
                 return travelExpenses();
             } else {
                 cin.get();
